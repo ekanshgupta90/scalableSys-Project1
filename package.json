@@ -1,0 +1,21 @@
+{
+  "name": "Try2",
+  "version": "0.1.0",
+  "description": "Try2",
+  "main": "hello-world-server.js",
+  "dependencies": {
+	  "ejs" : "~2.3.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "node.js",
+    "eclipse",
+    "nodeclipse"
+  ],
+  "author": "",
+  "license": "MIT",
+  "readmeFilename": "README.md"
+}

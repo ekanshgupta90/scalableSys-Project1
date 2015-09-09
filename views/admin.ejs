@@ -1,0 +1,83 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>egupta Project-1</title>
+    <!-- using bootstrap CDN for css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:80px; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-home">&nbsp;&nbsp;Welcome <%= username %>!
+    <span style="padding-left:5em;"></span><a href="/"><span class="fa fa-sign-out"></span></a></h1>
+    
+    <!-- LOGIN FORM -->
+    <form action="/login" method="post">
+    	<% 	var usersData = data;
+    		for (var i = 0; i < usersData.length; i++) {
+    	 %>
+        <div class="form-group">
+            <% if (usersData[i].question1 > 0 
+           			 && usersData[i].question2 > 0 
+           			 && usersData[i].question3 > 0  ) { %>
+            	<div class="alert alert-info">
+            		<label><h4><%= usersData[i].username %></h4></label>
+            		<table class="table">
+            			<tr>
+            				<th>#</th>
+            				<th>Question</th>
+            				<th>Answer</th>
+            				<th>Feedback</th>
+            			</tr>
+            			<tr>
+            				<td>1.</td>
+            				<td>What is 2+2?</td><td><%= usersData[i].question1 %></td>
+            				<% if (usersData[i].question1 === 4) { %>
+            				<td>(Correct!)</td>
+            				<% } else { %>
+            			 	<td>(Wrong!)</td>
+            				<% } %> <br/>
+            			</tr>
+            			<tr>
+            				<td>2.</td>
+            				<td>What is 3*4?</td> <td><%= usersData[i].question2 %></td>
+            				<% if (usersData[i].question2 === 12) { %>
+            				<td>(Correct!)</td>
+            				<% } else { %>
+            				<td>(Wrong!)</td>
+            				<% } %> <br/>
+            			</tr>
+            			<tr>
+            				<td>3.</td>
+            				<td>What is 2/2?</td> <td><%= usersData[i].question3 %></td>
+            				<% if (usersData[i].question3 === 1) { %>
+            				<td>(Correct!)</td>
+            				<% } else { %>
+            				<td>(Wrong!)</td>
+            				<% } %>
+            			</tr>
+            		</table>
+            	</div>
+            <% } else { %>
+            	<div class="alert alert-danger">
+            	<label><h4><%= usersData[i].username %></h4></label><br/>
+            	Questions are not yet answered by the user!</div>
+            <% } %>
+        </div>
+        <% } %>
+    </form>
+
+    <hr>
+
+</div>
+
+</div>
+</body>
+</html>
